@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 import static pages.CartButton.generateAddToCartButtonName;
 import static pages.CartButton.generateRemoveFromCartButtonName;
 
 public class InventoryPage {
 
     WebDriver driver;
-
-
 
     public By shoppingCartIcon = By.xpath("//a[@class='shopping_cart_link']");
     public By badgeShoppingCart = By.xpath("//span[@class='shopping_cart_badge']");
@@ -36,11 +36,12 @@ public class InventoryPage {
     public void clickOnShoppingCartIcon(){
          driver.findElement(shoppingCartIcon).click();
     }
+
     public WebElement getTwitterLink(){
         return driver.findElement(twitterLink);
     }
     public WebElement getFacebookLink(){
-        return driver.findElement(facebookLink);
+        return driver.findElement(facebookLink); 
     }
     public WebElement getLinkedinLink(){
         return driver.findElement(linkedinLink);

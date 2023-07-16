@@ -36,6 +36,7 @@ public class ProductsPurchaseTest extends BaseTest {
         sauceLabsBackpack.click();
         WebElement sauceLabsBikeLight = inventoryPage.getRemoveFromCartItemButton("Sauce Labs Bike Light");
         boolean displayedRemoveButton2 = sauceLabsBikeLight.isDisplayed();
+        sauceLabsBikeLight.click();
         WebElement sauceLabsFleeceJacket = inventoryPage.getRemoveFromCartItemButton("Sauce Labs Fleece Jacket");
         boolean displayedRemoveButton3 = sauceLabsFleeceJacket.isDisplayed();
         sauceLabsFleeceJacket.click();
@@ -55,7 +56,7 @@ public class ProductsPurchaseTest extends BaseTest {
         sauceLabsFleeceJacket.click();
         cartPage.clickContinueShopping();
         boolean displayedSauceLabsJacket = inventoryPage.getAddToCartItemButton("Sauce Labs Fleece Jacket").isDisplayed();
-        Assert.assertTrue("Sauce Labs Fleece Jacket is still displayed in cart", displayedSauceLabsJacket);
+        Assert.assertTrue("Remove button is displayed for Sauce Labs Fleece Jacket", displayedSauceLabsJacket);
     }
 
     @Test
@@ -68,7 +69,7 @@ public class ProductsPurchaseTest extends BaseTest {
                 generateRandomFirstName(),
                 generateRandomLastName(),
                 generateRandomZipCode());
-        Double currentAmount = checkoutOverview.totalCostOfItemsInTheCart();
+        Double currentAmount = checkoutOverview.itemTotal();
         Double expectedAmount = 39.98;
         Assert.assertEquals("The amount in the cart doesn't match with the sum of products", currentAmount, expectedAmount);
         checkoutOverview.completeStepTwo();
